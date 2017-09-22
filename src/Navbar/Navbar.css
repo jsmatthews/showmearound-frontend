@@ -1,0 +1,14 @@
+.Navbar {
+    height: 50px;
+    line-height: 50px;
+}
+
+.Navbar-links{
+	float: right;
+	margin: 0 10px;
+}
+
+.Navbar-link{
+	float: right;
+	margin: 0 10px;
+}
