@@ -1,14 +1,40 @@
 .Navbar {
-    height: 50px;
-    line-height: 50px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
 }
 
-.Navbar-links{
-	float: right;
-	margin: 0 10px;
+.Navbar-inner {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.Navbar-link{
-	float: right;
+.Navbar-links {
+    float: right;
+    margin: 0 10px;
+}
+
+.Navbar-link {
+    float: right;
 	margin: 0 10px;
+	line-height: 40px;
+    font-family: 'Comfortaa', cursive;
+    font-size: 14px;
+}
+
+.Navbar-link:hover {
+    cursor: pointer;
+    color: #ff6300;
+}
+
+.Navbar-logo {
+    float: left;
+    line-height: 40px;
+    font-size: 24px;
+    font-family: 'Alfa Slab One', cursive;
+}
+
+.Navbar-logo:hover {
+    cursor: pointer;
 }
