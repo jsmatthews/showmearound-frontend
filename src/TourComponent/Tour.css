@@ -61,22 +61,6 @@
     padding: 0 30px;
 }
 
-.Tour-section {
-    font-family: 'Comfortaa', cursive;
-    margin-bottom: 30px;
-}
-
-.Tour-header {
-    line-height: 30px;
-    border-bottom: 1px solid #333;
-    font-size: 20px;
-}
-
-.Tour-content {
-    padding: 20px 0;
-    line-height: 32px;
-}
-
 .Tour-activity {
     width: 100%;
     overflow: hidden;

@@ -8,6 +8,11 @@
     overflow: hidden;
 }
 
+.section-content {
+    font-family: 'Comfortaa', cursive;
+    line-height: 22px;
+}
+
 .stand-out-text{
     font-weight: 500;
     color: #ffb472;

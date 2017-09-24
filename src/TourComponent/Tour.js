@@ -5,6 +5,7 @@ import { API_ROOT } from '../api-config';
 import './Tour.css';
 
 import { DateTimeFilter } from '../Helpers/Filters';
+import { SectionHeader } from '../Sections/Sections';
 
 const LeftColumn = (props) => {
     return (
@@ -26,19 +27,11 @@ const LeftColumn = (props) => {
     )
 }
 
-const TourHeader = (props) => {
-    return (
-        <div className="Tour-header">
-            <span>{props.label}</span>
-        </div>
-    )
-}
-
 const TourDescription = (props) => {
     return (
-        <div className="Tour-section">
-            <TourHeader label="Description" />
-            <div className="Tour-content">
+        <div className="Section">
+            <SectionHeader label="Description" />
+            <div className="Section-content">
                 {props.tourDescription}
             </div>
         </div>
@@ -56,9 +49,9 @@ const TourActivity = (props) => {
 
 const TourItinerary = (props) => {
     return (
-        <div className="Tour-section">
-            <TourHeader label="Itinerary" />
-            <div className="Tour-content">
+        <div className="Section">
+            <SectionHeader label="Itinerary" />
+            <div className="Section-content">
                 {props.tourItinerary.map(activity => <TourActivity key={activity.id} id={activity.id} order={activity.order} activity={activity.content} />)}
             </div>
         </div>
@@ -134,9 +127,9 @@ const NewMessage = (props) => {
 const TourMessages = (props) => {
     const currentUser = 'Inigo';
     return (
-        <div className="Tour-section">
-            <TourHeader label="Lets discuss..." />
-            <div className="Tour-content">
+        <div className="Section">
+            <SectionHeader label="Lets discuss..." />
+            <div className="Section-content">
                 <NewMessage />
                 {
                     props.messages.map((message) => {

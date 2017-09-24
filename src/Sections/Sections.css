@@ -1,0 +1,17 @@
+.Section {
+    font-family: 'Comfortaa', cursive;
+    margin-bottom: 30px;
+}
+
+.Section-header {
+    line-height: 30px;
+    border-bottom: 1px solid #333;
+    font-size: 20px;
+    font-family: 'Comfortaa', cursive;
+}
+
+.Section-content {
+    font-family: 'Comfortaa', cursive;
+    padding: 20px 0;
+    line-height: 20px;
+}
