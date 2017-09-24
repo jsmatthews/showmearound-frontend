@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { API_ROOT } from '../api-config';
 import './Tour.css';
@@ -15,11 +15,13 @@ const LeftColumn = (props) => {
             <div className="Tour-title">{props.title}</div>
             <div className="Tour-guide">
                 <span>with </span>
-                <span className="stand-out-text">{props.guideName}</span>
+                <span className="stand-out-text"><Link to={`/guide/${props.guideId}`}>{props.guideName}</Link></span>
                 <span> on </span>
                 <span className="stand-out-text">{DateTimeFilter(props.startDateTime, true)}</span>
             </div>
-
+            <div className="Tour-request">
+                <div className="Tour-request-btn">Request to join!</div>
+            </div>
         </div>
     )
 }
@@ -80,7 +82,7 @@ const TourMessageOwner = (props) => {
 
                     </div>
                     <div className="Message-user-name">
-                        {props.user}
+                        <Link to={`/guide/${props.userId}`}>{props.user}</Link>
                     </div>
                 </div>
             </div>
@@ -97,7 +99,7 @@ const TourMessageOther = (props) => {
 
                     </div>
                     <div className="Message-user-name">
-                        {props.user}
+                        <Link to={`/guide/${props.userId}`}>{props.user}</Link>
                     </div>
                 </div>
             </div>
@@ -130,7 +132,7 @@ const NewMessage = (props) => {
 }
 
 const TourMessages = (props) => {
-    const currentUser = 'James';
+    const currentUser = 'Inigo';
     return (
         <div className="Tour-section">
             <TourHeader label="Lets discuss..." />
@@ -140,9 +142,9 @@ const TourMessages = (props) => {
                     props.messages.map((message) => {
                         return (
                             (message.user === currentUser) ?
-                                <TourMessageOwner key={message.id} id={message.id} message={message.content} user={message.user} content={message.content} dateTime={message.dateTime} />
+                                <TourMessageOwner key={message.id} id={message.id} message={message.content} user={message.user} userId={message.userId} content={message.content} dateTime={message.dateTime} />
                                 :
-                                <TourMessageOther key={message.id} id={message.id} message={message.content} user={message.user} content={message.content} dateTime={message.dateTime} />
+                                <TourMessageOther key={message.id} id={message.id} message={message.content} user={message.user} userId={message.userId} content={message.content} dateTime={message.dateTime} />
                         )
                     })
                 }
@@ -176,8 +178,8 @@ export default class Tour extends Component {
                 { id: 2, order: 2, content: 'Activity 2' }
             ];
             const messages = [
-                { id: 1, user: 'James', dateTime: '01-01-2018', content: 'Hey! Lets have fun! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor' },
-                { id: 2, user: 'Inigo', dateTime: '01-01-2018', content: 'Hey! Lets have fun! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor' }
+                { id: 1, user: guide.data.user.first_name, userId: guide.data.user._id, dateTime: '01-01-2018', content: 'Hey! Lets have fun! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor' },
+                { id: 2, user: 'Inigo', userId: guide.data.user._id, dateTime: '01-01-2018', content: 'Hey! Lets have fun! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor' }
             ];
 
             this.setState({ isLoading: false, tour: tour.data.tour, guide: guide.data.user, tourItinerary: itinerary, tourMessages: messages });
@@ -191,7 +193,7 @@ export default class Tour extends Component {
         return (
             this.state.isLoading ? <div></div> :
                 <div className="page-wrapper">
-                    <LeftColumn title={this.state.tour.title} guideName={this.state.guide.first_name} startDateTime={this.state.tour.start_date_time} />
+                    <LeftColumn title={this.state.tour.title} guideId={this.state.guide._id} guideName={this.state.guide.first_name} startDateTime={this.state.tour.start_date_time} />
                     <RightColumn tourDescription={this.state.tour.description} tourItinerary={this.state.tourItinerary} tourMessages={this.state.tourMessages} />
                 </div>
         )

@@ -32,6 +32,29 @@
     margin: 5px 0;
 }
 
+.Tour-left-column>.Tour-request{
+    line-height: 40px;
+    font-size: 18px;
+    font-family: 'Comfortaa', cursive;
+}
+
+.Tour-left-column>.Tour-request>.Tour-request-btn{
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    text-align:center;
+    border-radius: 3px;
+    border: 1px solid #ff6300;
+    margin-top: 20px;
+    
+}
+
+.Tour-left-column>.Tour-request>.Tour-request-btn:hover{
+    background: #ff6300;
+    color: #fff;
+    cursor: pointer;
+}
+
 .Tour-right-column {
     float: left;
     width: 65%;
