@@ -8,19 +8,19 @@ import './Home.css';
 const TourSummary = (props) => {
 	return (
 		<Link to={`/tour/${props.id}`}>
-			<div className="Tour">
-				<div className="Tour-content">
-					<div className="Tour-image">
+			<div className="Tour-summary">
+				<div className="Tour-summary-content">
+					<div className="Tour-summary-image">
 
 					</div>
 				</div>
 
-				<div className="Tour-header">
+				<div className="Tour-summary-header">
 					<div className="title-wrapper">
 						<div className="title">{props.title}</div>
 						<div className="info-item datetime">datetime</div>
 					</div>
-					<div className="description">
+					<div className="Tour-summary-description">
 						description
 				</div>
 				</div>

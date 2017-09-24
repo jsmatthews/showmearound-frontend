@@ -1,9 +1,9 @@
-.Tours{
-	width: 90%;
-	margin: 0 auto;
+.Tours {
+    width: 90%;
+    margin: 0 auto;
 }
 
-.Tour {
+.Tour-summary {
     float: left;
     width: 23%;
     margin-bottom: 20px;
@@ -11,30 +11,30 @@
     margin: 0 1%;
 }
 
-.Tour .title {
+.Tour-summary .title {
     font-size: 18px;
     font-family: 'Alfa Slab One', cursive;
 }
 
-.Tour-content {
+.Tour-summary-content {
     width: 100%;
     overflow: hidden;
     margin-top: 10px;
 }
 
-.Tour-content>.Tour-image {
+.Tour-summary-content>.Tour-summary-image {
     position: relative;
     width: 100%;
     height: 250px;
     background: #eee;
 }
 
-.Tour>.Tour-header {
+.Tour-summary>.Tour-summary-header {
     width: 100%;
     overflow: hidden;
 }
 
-.Tour-header>.title-wrapper {
+.Tour-summary-header>.title-wrapper {
     line-height: 30px;
 }
 
@@ -42,7 +42,7 @@
     color: #ff6300;
 }
 
-.Tour-header>.description {
+.Tour-summary-header>.Tour-summary-description {
     width: 40%;
     float: left;
     font-size: 18px;

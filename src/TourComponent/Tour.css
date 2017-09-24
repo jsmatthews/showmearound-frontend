@@ -1,0 +1,220 @@
+.Tour-left-column {
+    float: left;
+    width: 35%;
+    padding: 0 30px;
+}
+
+.Tour-left-column>.Tour-image {
+    width: 100%;
+    height: 400px;
+    background: #eee;
+}
+
+.Tour-left-column>.Tour-title {
+    font-size: 32px;
+    font-family: 'Carter One', cursive;
+    line-height: 40px;
+    margin-bottom: 24px;
+    margin-top: 10px;
+}
+
+.Tour-left-column>.Tour-guide {
+    font-size: 16px;
+    font-family: 'Comfortaa', cursive;
+    line-height: 16px;
+    margin: 5px 0;
+}
+
+.Tour-left-column>.Tour-startDateTime {
+    font-size: 16px;
+    font-family: 'Comfortaa', cursive;
+    line-height: 16px;
+    margin: 5px 0;
+}
+
+.Tour-right-column {
+    float: left;
+    width: 65%;
+    padding: 0 30px;
+}
+
+.Tour-section {
+    font-family: 'Comfortaa', cursive;
+    margin-bottom: 30px;
+}
+
+.Tour-header {
+    line-height: 30px;
+    border-bottom: 1px solid #333;
+    font-size: 20px;
+}
+
+.Tour-content {
+    padding: 20px 0;
+    line-height: 32px;
+}
+
+.Tour-activity {
+    width: 100%;
+    overflow: hidden;
+    line-height: 32px;
+}
+
+.Tour-activity-index {
+    float: left;
+    color: #ff6300;
+    width: 30px;
+    text-align: center;
+}
+
+.Tour-activity-content {
+    float: left;
+}
+
+.Message-new {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.Message-new>textarea {
+    width: 100%;
+    border-radius: 3px;
+    padding: 5px;
+    font-family: 'Comfortaa', cursive;
+    resize: vertical;
+}
+
+.Message-new>textarea:focus {
+    border-color: #ff6300;
+    outline-color: transparent;
+}
+
+.Message-controls {
+    overflow: hidden;
+    line-height: 20px;
+}
+
+.Message-controls>.control {
+    float: left;
+    width: 25px;
+    text-align: center;
+    color: #666;
+}
+
+.Message-controls>.control:hover {
+    cursor: pointer;
+    color: #ff6300;
+}
+
+.Message-controls>.submit {
+    float: right;
+}
+
+.Message-controls>.submit:hover {
+    cursor: pointer;
+    color: #ff6300;
+}
+
+.Message {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.Message-owner-left {
+    float: left;
+    width: 90%;
+}
+
+.Message-owner-right {
+    float: left;
+    width: 10%;
+}
+
+.Message-other-left {
+    float: left;
+    width: 10%;
+}
+
+.Message-other-right {
+    float: left;
+    width: 90%;
+}
+
+.Message-user {
+    width: 50px;
+    overflow: hidden;
+    float: right;
+}
+
+.Message-content {
+    position: relative;
+    padding: 15px;
+    line-height: 22px;
+    word-wrap: break-word;
+}
+
+.Message-datetime {
+    float: right;
+    line-height: 30px;
+    margin: 0px 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.Message-user-image {
+    width: 100%;
+    height: 50px;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.Message-user-name {
+    text-align: center;
+    font-size: 12px;
+}
+
+.Message-owner-left>.Message-content {
+    background: #ffb472;
+}
+
+.Message-owner-left>.Message-content:after {
+    content: "\A";
+    border-style: solid;
+    border-width: 0px 0px 15px 10px;
+    border-color: transparent transparent transparent #ffb472;
+    position: absolute;
+    right: -10px;
+    top: 0;
+}
+
+.Message-owner-left>.Message-user {
+    float: right;
+}
+
+.Message-owner-right>.Message-user>.Message-user-image {
+    background: #ffb472;
+}
+
+.Message-other-right>.Message-content {
+    background: #eee;
+}
+
+.Message-other-right>.Message-content:before {
+    content: "\A";
+    border-style: solid;
+    border-width: 0px 10px 15px 0;
+    border-color: transparent #eeeeee transparent transparent;
+    position: absolute;
+    left: -10px;
+    top: 0;
+}
+
+.Message-other-left>.Message-user {
+    float: left;
+}
+
+.Message-other-left>.Message-user>.Message-user-image {
+    background: #eee;
+}
