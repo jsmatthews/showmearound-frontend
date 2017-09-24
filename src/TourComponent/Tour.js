@@ -164,7 +164,7 @@ const RightColumn = (props) => {
 export default class Tour extends Component {
     constructor(props) {
         super(props);
-        this.state = { tour: {}, guide: {}, tourItinerary: [], tourMessages: [] };
+        this.state = { isLoading: true, tour: {}, guide: {}, tourItinerary: [], tourMessages: [] };
     }
 
     async componentDidMount() {
@@ -180,7 +180,7 @@ export default class Tour extends Component {
                 { id: 2, user: 'Inigo', dateTime: '01-01-2018', content: 'Hey! Lets have fun! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor' }
             ];
 
-            this.setState({ tour: tour.data.tour, guide: guide.data.user, tourItinerary: itinerary, tourMessages: messages });
+            this.setState({ isLoading: false, tour: tour.data.tour, guide: guide.data.user, tourItinerary: itinerary, tourMessages: messages });
             console.log(this.state.tourMessages);
         } catch (e) {
             console.error('Error retrieving tours: ', e);
@@ -189,10 +189,11 @@ export default class Tour extends Component {
 
     render() {
         return (
-            <div className="page-wrapper">
-                <LeftColumn title={this.state.tour.title} guideName={this.state.guide.first_name} startDateTime={this.state.tour.start_date_time} />
-                <RightColumn tourDescription={this.state.tour.description} tourItinerary={this.state.tourItinerary} tourMessages={this.state.tourMessages} />
-            </div>
+            this.state.isLoading ? <div></div> :
+                <div className="page-wrapper">
+                    <LeftColumn title={this.state.tour.title} guideName={this.state.guide.first_name} startDateTime={this.state.tour.start_date_time} />
+                    <RightColumn tourDescription={this.state.tour.description} tourItinerary={this.state.tourItinerary} tourMessages={this.state.tourMessages} />
+                </div>
         )
     }
 }
