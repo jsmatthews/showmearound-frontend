@@ -65,8 +65,7 @@ Tours.propTypes = {
 export default class Home extends Component {
 	render() {
 		return (
-			<div>
-				<h1 style={{ textAlign: 'center' }}>Home</h1>
+			<div className="page-wrapper">
 				<Tours />
 			</div>
 		)

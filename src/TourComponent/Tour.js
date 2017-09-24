@@ -176,7 +176,7 @@ export default class Tour extends Component {
             ];
 
             this.setState({ isLoading: false, tour: tour.data.tour, guide: guide.data.user, tourItinerary: itinerary, tourMessages: messages });
-            console.log(this.state.tourMessages);
+            console.log('Single Tour', this.state.tour);
         } catch (e) {
             console.error('Error retrieving tours: ', e);
         }

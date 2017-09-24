@@ -5,6 +5,7 @@ import Navbar from './NavbarComponent/Navbar';
 import Home from './HomeComponent/Home';
 import Tour from './TourComponent/Tour';
 import Guide from './GuideComponent/Guide';
+import CreateTour from './CreateTourComponent/CreateTour';
 
 import './App.css';
 
@@ -16,6 +17,7 @@ class App extends Component {
 				<Route path='/home' component={Home} />
 				<Route path='/tour/:tourId' component={Tour} />
 				<Route path='/guide/:guideId' component={Guide} />
+				<Route path='/createTour' component={CreateTour} />
 			</div>
 		);
 	}

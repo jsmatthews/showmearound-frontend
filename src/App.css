@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
 .page-wrapper {
     width: 1200px;
     margin: 50px auto;
@@ -13,7 +18,7 @@
     line-height: 22px;
 }
 
-.stand-out-text{
+.stand-out-text {
     font-weight: 500;
     color: #ffb472;
 }

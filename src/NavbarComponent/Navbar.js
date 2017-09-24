@@ -28,6 +28,7 @@ class NavbarLinks extends Component {
 			<div className="Navbar-links" >
 				<NavbarLink label="Login" linkClick={this.handleLoginClick} />
 				<NavbarLink label="Sign Up" linkClick={this.handleSubmitClick} />
+				<Link to="/createTour" >Create Tour</Link>
 			</div>
 		);
 	}

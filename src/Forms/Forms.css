@@ -1,0 +1,32 @@
+.Text-input {
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    border: 1px solid #999;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.Text-input:focus {
+    border: 1px solid #ff6300;
+}
+
+.Submit-btn {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #999;
+    background: #fff;
+    font-family: 'Comfortaa', cursive;
+}
+
+.Submit-btn:hover {
+    border: 1px solid #ff6300;
+    cursor: pointer;
+    color: #ff6300;
+}
+
+.Submit-button-disabled{
+    pointer-events: none;
+    color: #ddd;
+    border: 1px solid #ddd;
+}

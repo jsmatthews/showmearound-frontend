@@ -118,6 +118,7 @@ export default class Guide extends Component {
 			guide.data.user.age = 29;
 			guide.data.user.location = 'Tokyo';
 			this.setState({ isLoading: false, guide: guide.data.user, reviews: reviews });
+			console.log(this.state);
 		} catch (e) {
 			console.error('Error retrieving tours: ', e);
 		}
