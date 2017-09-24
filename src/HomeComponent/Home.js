@@ -1,32 +1,35 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { API_ROOT } from '../api-config';
 import './Home.css';
 
-const Tour = (props) => {
+const TourSummary = (props) => {
 	return (
-		<div className="Tour">
-			<div className="Tour-content">
-				<div className="Tour-image">
+		<Link to={`/tour/${props.id}`}>
+			<div className="Tour">
+				<div className="Tour-content">
+					<div className="Tour-image">
 
+					</div>
+				</div>
+
+				<div className="Tour-header">
+					<div className="title-wrapper">
+						<div className="title">{props.title}</div>
+						<div className="info-item datetime">datetime</div>
+					</div>
+					<div className="description">
+						description
+				</div>
 				</div>
 			</div>
-
-			<div className="Tour-header">
-				<div className="title-wrapper">
-					<div className="title">{props.title}</div>
-					<div className="info-item datetime">datetime</div>
-				</div>
-				<div className="description">
-					description
-				</div>
-			</div>
-		</div>
+		</Link>
 	)
 }
 
-Tour.propTypes = {
+TourSummary.propTypes = {
 	title: PropTypes.string
 }
 
@@ -49,7 +52,7 @@ class Tours extends Component {
 	render() {
 		return (
 			<div className="Tours">
-				{this.state.tours.map(tour => <Tour key={tour._id} title={tour.title} />)}
+				{this.state.tours.map(tour => <TourSummary key={tour._id} id={tour._id} title={tour.title} />)}
 			</div>
 		)
 	}

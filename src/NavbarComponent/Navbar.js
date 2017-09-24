@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const NavbarLink = (props) => {
@@ -37,7 +38,7 @@ export default class Navbar extends Component {
 		return (
 			<div className="Navbar">
 				<div className="Navbar-inner">
-					<div className="Navbar-logo">SMA</div>
+					<Link to="/home" className="Navbar-logo">SMA</Link>
 					<NavbarLinks />
 				</div>
 			</div>
