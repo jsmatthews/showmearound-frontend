@@ -32,7 +32,7 @@ export default class CreateTour extends Component {
             wasCreated: false,
             errorMessage: false,
             new_tour: {
-                guide: '59c513904e86d81de4debe29',
+                guide: '59c8f67a79b4760acce908cc',
                 title: '',
                 description: '',
                 start_date_time: '2018-01-02T00:00:00.000Z',

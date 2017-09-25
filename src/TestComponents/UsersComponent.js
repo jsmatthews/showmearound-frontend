@@ -4,7 +4,7 @@ import { API_ROOT } from '../api-config';
 
 const User = (props) => {
 	return (
-		<div>{props.first_name}, {props.family_name}, {props.email}, {props.password} </div>
+		<div>{props.first_name}, {props.family_name}, {props.email}, {props.password}, {props.userId} </div>
 	)
 }
 
@@ -22,7 +22,7 @@ export default class Users extends Component {
 	render() {
 		return (
 			<div>
-				{this.state.users.map(user => <User key={user._id} first_name={user.first_name} family_name={user.family_name} email={user.email} password={user.password} />)}
+				{this.state.users.map(user => <User key={user._id} userId={user._id} first_name={user.first_name} family_name={user.family_name} email={user.email} password={user.password} />)}
 			</div>
 		)
 	}

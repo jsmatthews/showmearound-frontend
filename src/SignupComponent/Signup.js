@@ -8,9 +8,19 @@ import { SectionHeader } from '../Sections/Sections';
 
 const SignupForm = (props) => {
 	return (
-		<form className="Create-tour-form" onSubmit={props.handleSubmit}>
+		<form className="Create-tour-form" onSubmit={props.signupSubmit}>
 			<TextInput elementId='FirstName' placeholder="First name..." onChange={props.firstNameChange} value={props.first_name} onBlur={props.handleOnBlur} />
 			<TextInput elementId='FamilyName' placeholder="Surname..." onChange={props.familyNameChange} value={props.family_name} onBlur={props.handleOnBlur} />
+			<TextInput elementId='Email' placeholder="Email..." onChange={props.emailChange} value={props.email} onBlur={props.handleOnBlur} />
+			<TextInput elementId='Password' placeholder="Password..." onChange={props.passwordChange} value={props.password} onBlur={props.handleOnBlur} />
+			<SubmitButton elementId='SignupSubmit' placeholder="Post" />
+		</form>
+	)
+}
+
+const LoginForm = (props) => {
+	return (
+		<form className="Create-tour-form" onSubmit={props.loginSubmit}>
 			<TextInput elementId='Email' placeholder="Email..." onChange={props.emailChange} value={props.email} onBlur={props.handleOnBlur} />
 			<TextInput elementId='Password' placeholder="Password..." onChange={props.passwordChange} value={props.password} onBlur={props.handleOnBlur} />
 			<SubmitButton elementId='SignupSubmit' placeholder="Post" />
@@ -24,7 +34,10 @@ const Modal = (props) => {
 			<div className="Modal-background" onClick={props.closeModal}></div>
 			<div className="Modal">
 				<SectionHeader label="Sign up..." />
-				<SignupForm {...props} />
+				{
+					(props.modalType === '') ? null :
+					(props.modalType === 'signup') ? <SignupForm {...props} /> : <LoginForm {...props} />
+				}
 			</div>
 		</div>
 	)
@@ -33,12 +46,13 @@ const Modal = (props) => {
 export default class Signup extends Component {
 	constructor(props) {
 		super(props);
-		this.handleSubmit = this.handleSubmit.bind(this);
+		this.signupSubmit = this.signupSubmit.bind(this);
+		this.loginSubmit = this.loginSubmit.bind(this);
 		this.handleOnBlur = this.handleOnBlur.bind(this);
-        this.firstNameChange = this.firstNameChange.bind(this);
-        this.familyNameChange = this.familyNameChange.bind(this);
-        this.emailChange = this.emailChange.bind(this);
-        this.passwordChange = this.passwordChange.bind(this);
+		this.firstNameChange = this.firstNameChange.bind(this);
+		this.familyNameChange = this.familyNameChange.bind(this);
+		this.emailChange = this.emailChange.bind(this);
+		this.passwordChange = this.passwordChange.bind(this);
 
 		this.state = {
 			error: false,
@@ -51,19 +65,32 @@ export default class Signup extends Component {
 		}
 	}
 
-	async handleSubmit(event) {
+	async signupSubmit(event) {
 		event.preventDefault();
 		//const signupIsValid = this.validateSignup(this.state.signup_info);
 		//if (!signupIsValid) return;
 
 		try {
 			console.log(this.state.signup_info);
-			var SignedInUser = await axios.post(`${API_ROOT}/users/`, this.state.signup_info);
+			var SignedInUser = await axios.post(`${API_ROOT}/passport/signup/`, this.state.signup_info);
 			console.log(SignedInUser);
 		} catch (e) {
 			console.error('Error signing in user: ', e);
 		}
+	}
 
+	async loginSubmit(event) {
+		event.preventDefault();
+		//const signupIsValid = this.validateSignup(this.state.signup_info);
+		//if (!signupIsValid) return;
+
+		try {
+			console.log(this.state.signup_info);
+			var SignedInUser = await axios.post(`${API_ROOT}/passport/login/`, this.state.signup_info);
+			console.log(SignedInUser);
+		} catch (e) {
+			console.error('Error signing in user: ', e);
+		}
 	}
 
 	firstNameChange(event) {
@@ -112,9 +139,11 @@ export default class Signup extends Component {
 	render() {
 		return (
 			<Modal
+				modalType={this.props.modalType}
 				closeModal={this.props.closeModal}
 
-				handleSubmit={this.handleSubmit}
+				signupSubmit={this.signupSubmit}
+				loginSubmit={this.loginSubmit}
 				handleOnBlur={this.handleOnBlur}
 
 				firstNameChange={this.firstNameChange}

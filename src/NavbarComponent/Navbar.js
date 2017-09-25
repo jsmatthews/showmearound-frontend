@@ -13,8 +13,8 @@ class NavbarLinks extends Component {
 	render() {
 		return (
 			<div className="Navbar-links" >
-				<NavbarLink label="Login" linkClick={this.props.openModal} />
-				<NavbarLink label="Sign Up" linkClick={this.props.openModal} />
+				<NavbarLink label="Login" linkClick={this.props.openLoginModal} />
+				<NavbarLink label="Sign Up" linkClick={this.props.openSignupModal} />
 				<Link to="/createTour" >Create Tour</Link>
 			</div>
 		);
@@ -24,18 +24,23 @@ class NavbarLinks extends Component {
 export default class Navbar extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { displayModal: false };
-		this.openModal = this.openModal.bind(this);
+		this.state = { displayModal: false, modalType: '' };
+		this.openSignupModal = this.openSignupModal.bind(this);
+		this.openLoginModal = this.openLoginModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
 	}
 
-	openModal() {
-		this.setState({ displayModal: true });
+	openSignupModal() {
+		this.setState({ displayModal: true, modalType: 'signup' });
+	}
+
+	openLoginModal() {
+		this.setState({ displayModal: true, modalType: 'login' });
 	}
 
 	closeModal() {
 		console.log('close');
-		this.setState({ displayModal: false });
+		this.setState({ displayModal: false, modalType: '' });
 	}
 
 	render() {
@@ -43,8 +48,8 @@ export default class Navbar extends Component {
 			<div className="Navbar">
 				<div className="Navbar-inner">
 					<Link to="/" className="Navbar-logo">SMA</Link>
-					<NavbarLinks openModal={this.openModal} />
-					{(this.state.displayModal) ? <Signup closeModal={this.closeModal} /> : null}
+					<NavbarLinks openSignupModal={this.openSignupModal} openLoginModal={this.openLoginModal} />
+					{(this.state.displayModal) ? <Signup closeModal={this.closeModal} modalType={this.state.modalType} /> : null}
 				</div>
 			</div>
 		)
