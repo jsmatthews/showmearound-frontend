@@ -6,6 +6,7 @@ import Home from './HomeComponent/Home';
 import Tour from './TourComponent/Tour';
 import Guide from './GuideComponent/Guide';
 import CreateTour from './CreateTourComponent/CreateTour';
+import Users from './TestComponents/UsersComponent';
 
 import './App.css';
 
@@ -18,6 +19,7 @@ class App extends Component {
 				<Route path='/tour/:tourId' component={Tour} />
 				<Route path='/guide/:guideId' component={Guide} />
 				<Route path='/createTour' component={CreateTour} />
+				<Route path='/users' component={Users} />
 			</div>
 		);
 	}

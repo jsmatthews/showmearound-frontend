@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import Signup from '../SignupComponent/Signup';
 
 const NavbarLink = (props) => {
 	return (
@@ -9,25 +10,11 @@ const NavbarLink = (props) => {
 };
 
 class NavbarLinks extends Component {
-	constructor(props) {
-		super(props);
-		this.handleLoginClick = this.handleLoginClick.bind(this);
-		this.handleSubmitClick = this.handleSubmitClick.bind(this);
-	}
-
-	handleLoginClick() {
-		console.log('Login clicked!');
-	}
-
-	handleSubmitClick() {
-		console.log('Submit clicked!');
-	}
-
 	render() {
 		return (
 			<div className="Navbar-links" >
-				<NavbarLink label="Login" linkClick={this.handleLoginClick} />
-				<NavbarLink label="Sign Up" linkClick={this.handleSubmitClick} />
+				<NavbarLink label="Login" linkClick={this.props.openModal} />
+				<NavbarLink label="Sign Up" linkClick={this.props.openModal} />
 				<Link to="/createTour" >Create Tour</Link>
 			</div>
 		);
@@ -35,12 +22,29 @@ class NavbarLinks extends Component {
 }
 
 export default class Navbar extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { displayModal: false };
+		this.openModal = this.openModal.bind(this);
+		this.closeModal = this.closeModal.bind(this);
+	}
+
+	openModal() {
+		this.setState({ displayModal: true });
+	}
+
+	closeModal() {
+		console.log('close');
+		this.setState({ displayModal: false });
+	}
+
 	render() {
 		return (
 			<div className="Navbar">
 				<div className="Navbar-inner">
 					<Link to="/" className="Navbar-logo">SMA</Link>
-					<NavbarLinks />
+					<NavbarLinks openModal={this.openModal} />
+					{(this.state.displayModal) ? <Signup closeModal={this.closeModal} /> : null}
 				</div>
 			</div>
 		)
