@@ -14,6 +14,7 @@
 .Tour-summary .title {
     font-size: 18px;
     font-family: 'Alfa Slab One', cursive;
+    color: #333;
 }
 
 .Tour-summary-content {
@@ -46,4 +47,5 @@
     width: 40%;
     float: left;
     font-size: 18px;
+    color: #333;
 }

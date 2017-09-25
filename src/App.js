@@ -14,7 +14,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Navbar />
-				<Route path='/home' component={Home} />
+				<Route exact path='/' component={Home} />
 				<Route path='/tour/:tourId' component={Tour} />
 				<Route path='/guide/:guideId' component={Guide} />
 				<Route path='/createTour' component={CreateTour} />

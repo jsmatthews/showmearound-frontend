@@ -39,7 +39,7 @@ export default class Navbar extends Component {
 		return (
 			<div className="Navbar">
 				<div className="Navbar-inner">
-					<Link to="/home" className="Navbar-logo">SMA</Link>
+					<Link to="/" className="Navbar-logo">SMA</Link>
 					<NavbarLinks />
 				</div>
 			</div>
